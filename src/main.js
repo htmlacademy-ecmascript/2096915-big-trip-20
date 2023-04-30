@@ -2,9 +2,9 @@ import TripInfoView from './view/trip-info-view.js';
 import FilterView from './view/filter-view.js';
 import SortView from './view/sort-view.js';
 import TripEventListView from './view/trip-event-list-view.js';
-import EventEditView from './view/event-edit.js';
-import EventEditHeaderView from './view/event-edit-header.js';
-import EventEditDetailsView from './view/event-edit-details.js';
+import EventEditView from './view/event-edit-view.js';
+import EventEditHeaderView from './view/event-edit-header-view.js';
+import EventEditDetailsView from './view/event-edit-details-view.js';
 import TripPointView from './view/trip-point-view.js';
 import { RenderPosition, render } from './render.js';
 
