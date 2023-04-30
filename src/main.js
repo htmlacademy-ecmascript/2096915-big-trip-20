@@ -4,6 +4,7 @@ import SortView from './view/sort-view.js';
 import TripEventListView from './view/trip-event-list-view.js';
 import EventEditView from './view/event-edit.js';
 import EventEditHeaderView from './view/event-edit-header.js';
+import EventEditDetailsView from './view/event-edit-details.js';
 import { RenderPosition, render } from './render.js';
 
 const siteTripMainElement = document.querySelector('.trip-main');
@@ -22,3 +23,4 @@ render(new EventEditView(), tripEventsList);
 const eventEditElement = document.querySelector('.event--edit');
 
 render(new EventEditHeaderView(), eventEditElement);
+render(new EventEditDetailsView(), eventEditElement);
