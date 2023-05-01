@@ -1,5 +1,5 @@
 import TripEventListView from '../view/trip-event-list-view.js';
-import EventEditView from '../view/event-edit-view.js';
+import FormEventEditView from '../view/form-event-edit-view.js';
 import EventEditHeaderView from '../view/event-edit-header-view.js';
 import EventEditDetailsView from '../view/event-edit-details-view.js';
 import TripPointView from '../view/trip-point-view.js';
@@ -7,7 +7,7 @@ import { render } from '../render.js';
 
 export default class EventPresenter {
   tripEventListComponent = new TripEventListView();
-  eventEditComponent = new EventEditView();
+  eventEditComponent = new FormEventEditView();
 
   constructor({eventContainer}) {
     this.eventContainer = eventContainer;
