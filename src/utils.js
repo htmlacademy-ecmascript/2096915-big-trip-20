@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
 const DATE_FORMAT = 'MMM D';
 const TIME_FORMAT = 'HH:mm';
@@ -19,6 +20,8 @@ const getRandomInteger = (min, max) => {
   return Math.floor(result);
 };
 
+dayjs.extend(utc);
+
 function humanizePointDate(date) {
   return date ? dayjs(date).format(DATE_FORMAT) : '';
 }
@@ -28,8 +31,8 @@ function humanizePointTime(time) {
 }
 
 function humanizeDifferenceDate(startDate, endDate) {
-  const difference = (dayjs(endDate).diff(startDate));
-  return dayjs(difference).format(DIFF_FORMAT);
+  const difference = (dayjs(endDate).diff(dayjs(startDate)));
+  return dayjs(difference).utc().format(DIFF_FORMAT);
 }
 
 export { getRandomArrayElement, createIdGenerator, getRandomInteger, humanizePointDate, humanizePointTime, humanizeDifferenceDate };

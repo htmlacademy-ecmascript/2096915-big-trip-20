@@ -48,4 +48,9 @@ const Price = {
   MAX: 500
 };
 
-export { TYPES, CITIES, DESCRIPTIONS, PHOTO_URL, BasePrice, Price };
+const TimeTo = {
+  MIN: 0,
+  MAX: 300 * 60000
+};
+
+export { TYPES, CITIES, DESCRIPTIONS, PHOTO_URL, BasePrice, Price, TimeTo };
