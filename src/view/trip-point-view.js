@@ -1,24 +1,32 @@
 import { createElement } from '../render.js';
+import { humanizePointDate, humanizePointTime, humanizeDifferenceDate } from '../utils.js';
 
-function createTripPointTemplate() {
+function createTripPointTemplate(point) {
+  const { type, destination, dateFrom, dateTo, basePrice } = point;
+
+  const date = humanizePointDate(dateFrom);
+  const timeFrom = humanizePointTime(dateFrom);
+  const timeTo = humanizePointTime(dateTo);
+  const differenceTime = humanizeDifferenceDate(dateFrom, dateTo);
+
   return /*html*/`
     <li class="trip-events__item">
       <div class="event">
-        <time class="event__date" datetime="2019-03-18">MAR 18</time>
+        <time class="event__date" datetime="2019-03-18">${date}</time>
         <div class="event__type">
-          <img class="event__type-icon" width="42" height="42" src="img/icons/taxi.png" alt="Event type icon">
+          <img class="event__type-icon" width="42" height="42" src="img/icons/${type}.png" alt="Event type icon">
         </div>
-        <h3 class="event__title">Taxi Amsterdam</h3>
+        <h3 class="event__title">${type} ${destination}</h3>
         <div class="event__schedule">
           <p class="event__time">
-            <time class="event__start-time" datetime="2019-03-18T10:30">10:30</time>
+            <time class="event__start-time" datetime="${dateFrom}">${timeFrom}</time>
             &mdash;
-            <time class="event__end-time" datetime="2019-03-18T11:00">11:00</time>
+            <time class="event__end-time" datetime="${dateTo}">${timeTo}</time>
           </p>
-          <p class="event__duration">30M</p>
+          <p class="event__duration">${differenceTime}</p>
         </div>
         <p class="event__price">
-          &euro;&nbsp;<span class="event__price-value">20</span>
+          &euro;&nbsp;<span class="event__price-value">${basePrice}</span>
         </p>
         <h4 class="visually-hidden">Offers:</h4>
         <ul class="event__selected-offers">
@@ -42,8 +50,12 @@ function createTripPointTemplate() {
 }
 
 export default class TripPointView {
+  constructor({ point }) {
+    this.point = point;
+  }
+
   getTemplate() {
-    return createTripPointTemplate();
+    return createTripPointTemplate(this.point);
   }
 
   getElement() {

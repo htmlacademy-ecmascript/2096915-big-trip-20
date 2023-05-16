@@ -1,3 +1,9 @@
+import dayjs from 'dayjs';
+
+const DATE_FORMAT = 'MMM D';
+const TIME_FORMAT = 'HH:mm';
+const DIFF_FORMAT = 'HH[h] mm[m]';
+
 const getRandomArrayElement = (items) => items[Math.floor(Math.random() * items.length)];
 
 const createIdGenerator = () => {
@@ -13,4 +19,17 @@ const getRandomInteger = (min, max) => {
   return Math.floor(result);
 };
 
-export { getRandomArrayElement, createIdGenerator, getRandomInteger };
+function humanizePointDate(date) {
+  return date ? dayjs(date).format(DATE_FORMAT) : '';
+}
+
+function humanizePointTime(time) {
+  return time ? dayjs(time).format(TIME_FORMAT) : '';
+}
+
+function humanizeDifferenceDate(startDate, endDate) {
+  const difference = (dayjs(endDate).diff(startDate));
+  return dayjs(difference).format(DIFF_FORMAT);
+}
+
+export { getRandomArrayElement, createIdGenerator, getRandomInteger, humanizePointDate, humanizePointTime, humanizeDifferenceDate };
