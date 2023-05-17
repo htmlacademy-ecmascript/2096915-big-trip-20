@@ -22,10 +22,10 @@ export default class EventPresenter {
     render(this.tripEventListComponent, this.eventContainer);
     render(this.tripEventItemComponent, this.tripEventListComponent.getElement());
     render(this.formEventEditComponent, this.tripEventItemComponent.getElement());
-    render(new EventEditHeaderView(), this.formEventEditComponent.getElement());
+    render(new EventEditHeaderView({point: this.boardPoints[0]}), this.formEventEditComponent.getElement());
     render(new EventEditDetailsView(), this.formEventEditComponent.getElement());
 
-    for (let i = 0; i < this.boardPoints.length; i++) {
+    for (let i = 1; i < this.boardPoints.length; i++) {
       render(new TripPointView({point: this.boardPoints[i]}), this.tripEventListComponent.getElement());
     }
   }

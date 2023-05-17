@@ -4,6 +4,7 @@ import utc from 'dayjs/plugin/utc';
 const DATE_FORMAT = 'MMM D';
 const TIME_FORMAT = 'HH:mm';
 const DIFF_FORMAT = 'HH[h] mm[m]';
+const DATE_EDIT_FORMAT = 'DD/MM/YY HH:mm';
 
 function getRandomArrayElement(items) {
   return items[Math.floor(Math.random() * items.length)];
@@ -28,6 +29,10 @@ function humanizePointDate(date) {
   return date ? dayjs(date).format(DATE_FORMAT) : '';
 }
 
+function humanizePointEditDate(date) {
+  return date ? dayjs(date).format(DATE_EDIT_FORMAT) : '';
+}
+
 function humanizePointTime(time) {
   return time ? dayjs(time).format(TIME_FORMAT) : '';
 }
@@ -37,4 +42,4 @@ function humanizeDifferenceDate(startDate, endDate) {
   return dayjs(difference).utc().format(DIFF_FORMAT);
 }
 
-export { getRandomArrayElement, createIdGenerator, getRandomInteger, humanizePointDate, humanizePointTime, humanizeDifferenceDate };
+export { getRandomArrayElement, createIdGenerator, getRandomInteger, humanizePointDate, humanizePointTime, humanizeDifferenceDate, humanizePointEditDate };
