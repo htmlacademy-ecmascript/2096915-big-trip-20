@@ -53,4 +53,20 @@ const TimeTo = {
   MAX: 300 * 60000
 };
 
-export { TYPES, CITIES, DESCRIPTIONS, PHOTO_URL, BasePrice, Price, TimeTo };
+const MAX_OFFERS_COUNT = 5;
+const MAX_PICTURES_COUNT = 5;
+
+const OFFERS = [
+  'Add luggage',
+  'Switch to comfort class',
+  'Add meal',
+  'Choose seats',
+  'Travel by train',
+  'Order Uber',
+  'Rent a car',
+  'Add breakfast',
+  'Book tickets',
+  'Lunch in city'
+];
+
+export { TYPES, CITIES, DESCRIPTIONS, PHOTO_URL, BasePrice, Price, TimeTo, MAX_OFFERS_COUNT, MAX_PICTURES_COUNT, OFFERS };
