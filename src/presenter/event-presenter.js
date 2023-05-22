@@ -11,19 +11,21 @@ export default class EventPresenter {
   tripEventItemComponent = new TripEventItemView();
   formEventEditComponent = new FormEventEditView();
 
-  constructor({eventContainer}) {
+  constructor({eventContainer, pointsModel}) {
     this.eventContainer = eventContainer;
+    this.pointsModel = pointsModel;
   }
 
   init() {
+    this.boardPoints = [...this.pointsModel.getPoints()];
     render(this.tripEventListComponent, this.eventContainer);
     render(this.tripEventItemComponent, this.tripEventListComponent.getElement());
     render(this.formEventEditComponent, this.tripEventItemComponent.getElement());
-    render(new EventEditHeaderView(), this.formEventEditComponent.getElement());
-    render(new EventEditDetailsView(), this.formEventEditComponent.getElement());
+    render(new EventEditHeaderView({point: this.boardPoints[0]}), this.formEventEditComponent.getElement());
+    render(new EventEditDetailsView({point: this.boardPoints[0]}), this.formEventEditComponent.getElement());
 
-    for (let i = 0; i < 3; i++) {
-      render(new TripPointView(), this.tripEventListComponent.getElement());
+    for (let i = 1; i < this.boardPoints.length; i++) {
+      render(new TripPointView({point: this.boardPoints[i]}), this.tripEventListComponent.getElement());
     }
   }
 }
