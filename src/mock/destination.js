@@ -1,4 +1,4 @@
-import { DESCRIPTIONS, MAX_PICTURES_COUNT, PHOTO_URL, CITIES } from '../const.js';
+import { DESCRIPTIONS, PicturesCount, PHOTO_URL, CITIES } from '../const.js';
 import { getRandomArrayElement, createIdGenerator, getRandomInteger } from '../utils.js';
 
 const idDestination = createIdGenerator();
@@ -15,7 +15,7 @@ function generateDestination(city) {
     id: idDestination(),
     description: getRandomArrayElement(DESCRIPTIONS),
     name: city,
-    pictures: Array.from({ length: getRandomInteger(0, MAX_PICTURES_COUNT) }, generatePicture)
+    pictures: Array.from({ length: getRandomInteger(PicturesCount.MIN, PicturesCount.MAX) }, generatePicture)
   };
 }
 

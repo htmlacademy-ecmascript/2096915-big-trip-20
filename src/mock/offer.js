@@ -50,5 +50,17 @@ function getOfferById(id) {
   return offerItem;
 }
 
-export { getIdsOffersByType, getOfferById };
+function getAllOffersByType(type) {
+  const offersTitle = [];
+  allOffers.forEach((offer) => {
+    if (offer.type === type) {
+      offer.offers.forEach((item) => {
+        offersTitle.push(item);
+      });
+    }
+  });
+  return offersTitle;
+}
+
+export { getIdsOffersByType, getOfferById, getAllOffersByType };
 

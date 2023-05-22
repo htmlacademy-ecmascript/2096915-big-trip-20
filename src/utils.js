@@ -23,6 +23,12 @@ function getRandomInteger(min, max) {
   return Math.floor(result);
 }
 
+function getLastWord(offer) {
+  const words = offer.trim().split(' ');
+  const lastWord = words[words.length - 1];
+  return lastWord.toLowerCase();
+}
+
 dayjs.extend(utc);
 
 function humanizePointDate(date) {
@@ -42,4 +48,4 @@ function humanizeDifferenceDate(startDate, endDate) {
   return dayjs(difference).utc().format(DIFF_FORMAT);
 }
 
-export { getRandomArrayElement, createIdGenerator, getRandomInteger, humanizePointDate, humanizePointTime, humanizeDifferenceDate, humanizePointEditDate };
+export { getRandomArrayElement, createIdGenerator, getRandomInteger, humanizePointDate, humanizePointTime, humanizeDifferenceDate, humanizePointEditDate, getLastWord };

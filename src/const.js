@@ -53,8 +53,13 @@ const TimeTo = {
   MAX: 300 * 60000
 };
 
+
+const PicturesCount = {
+  MIN: 1,
+  MAX: 5
+};
+
 const MAX_OFFERS_COUNT = 5;
-const MAX_PICTURES_COUNT = 5;
 
 const OFFERS = [
   'Add luggage',
@@ -69,4 +74,4 @@ const OFFERS = [
   'Lunch in city'
 ];
 
-export { TYPES, CITIES, DESCRIPTIONS, PHOTO_URL, BasePrice, Price, TimeTo, MAX_OFFERS_COUNT, MAX_PICTURES_COUNT, OFFERS };
+export { TYPES, CITIES, DESCRIPTIONS, PHOTO_URL, BasePrice, Price, TimeTo, MAX_OFFERS_COUNT, PicturesCount, OFFERS };

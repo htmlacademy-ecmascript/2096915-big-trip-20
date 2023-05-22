@@ -18,12 +18,11 @@ export default class EventPresenter {
 
   init() {
     this.boardPoints = [...this.pointsModel.getPoints()];
-
     render(this.tripEventListComponent, this.eventContainer);
     render(this.tripEventItemComponent, this.tripEventListComponent.getElement());
     render(this.formEventEditComponent, this.tripEventItemComponent.getElement());
     render(new EventEditHeaderView({point: this.boardPoints[0]}), this.formEventEditComponent.getElement());
-    render(new EventEditDetailsView(), this.formEventEditComponent.getElement());
+    render(new EventEditDetailsView({point: this.boardPoints[0]}), this.formEventEditComponent.getElement());
 
     for (let i = 1; i < this.boardPoints.length; i++) {
       render(new TripPointView({point: this.boardPoints[i]}), this.tripEventListComponent.getElement());
